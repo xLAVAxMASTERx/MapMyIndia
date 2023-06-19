@@ -1,0 +1,82 @@
+
+      
+      
+
+      <html>
+        <head>
+          <title>Polygon with Multiple Marker</title>
+          <meta name="viewport" content="initial-scale=1.0">
+          <meta charset="utf-8">
+          <style>
+          html,
+          body,
+          #map {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100vh;
+          }
+          </style>
+            </head>
+            <script src="https://apis.mappls.com/advancedmaps/api/7af521950ad3c621beec2d6ef3f9a79c/map_sdk?layer=vector&v=3.0&callback=initMap1" defer async></script>
+            </head>
+        <body>
+                    <div id="map"></div>
+                        <script>
+        var map, poly, mark;
+
+        function initMap1() {
+            map = new mappls.Map('map', {
+                center: [28.61, 77.23],
+                zoomControl: true,
+                location: true
+            });
+            map.addListener('load', function() {
+                var pts = [{
+                lat: 28.774,
+                lng: 80.757
+            }, {
+                lat: 28.774,
+                lng: 77.757
+            }, {
+                lat: 27.321,
+                lng: 77.757
+            }, ];
+
+                poly = new mappls.Polygon({
+                    map: map,
+                    paths: pts,
+                    fillColor: "blue",
+                    fitbounds: true
+                });
+                check()
+            });
+
+            function check() {
+                var bounds = poly.getBounds();
+                for (var c = 0; c <= 100; c++) {
+                    var ramdomLat = (Math.random() * (bounds._ne.lat - bounds._sw.lat) + bounds._sw.lat);
+                    var randomLng = (Math.random() * (bounds._ne.lng - bounds._sw.lng) + bounds._sw.lng);
+                    if (poly.check_position([ramdomLat, randomLng])) {
+                        new mappls.Marker({
+                            map: map,
+                            position: {
+                                lat: ramdomLat,
+                                lng: randomLng
+                            },
+                            icon_url: 'https://apis.mapmyindia.com/map_v3/1.png',
+                        });
+                    }
+                }
+
+
+            }
+        }
+    </script>
+        </body>
+      </html>
+      
+
+      
+      
+    

@@ -1,0 +1,142 @@
+<html>
+        <head>
+          <title>Single Marker</title>
+          <meta name="viewport" content="initial-scale=1.0">
+          <meta charset="utf-8">
+          <style>
+          html,
+          body,
+          #map {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100vh;
+          }
+          </style>
+             <script src="https://apis.mappls.com/advancedmaps/api/7af521950ad3c621beec2d6ef3f9a79c/map_sdk?layer=vector&v=3.0&callback=initMap1" defer async></script>
+            </head>
+        <body>
+                    <div id="map"></div>
+                      <script>
+    var map, Marker1;
+
+    function initMap1() {
+      map = new mappls.Map('map', {
+        center: [28.61, 77.23],
+        zoomControl: true,
+        location: true
+      });
+      Marker1 = new mappls.Marker({
+        map: map,
+        position: {
+          "lat": 28.519467,
+          "lng": 77.223150
+        },
+        fitbounds: true,
+        icon_url: 'download.png'
+      });
+      Marker1 = new mappls.Marker({
+        map: map,
+        position: {
+          "lat": 28.519467,
+          "lng": 77.263150
+        },
+        fitbounds: true,
+        icon_url: 'images.png'
+      });
+      Marker1 = new mappls.Marker({
+        map: map,
+        position: {
+          "lat": 28.559467,
+          "lng": 77.223150
+        },
+        fitbounds: true,
+        icon_url: 'https://apis.mapmyindia.com/map_v3/1.png'
+      });
+      Marker1 = new mappls.Marker({
+        map: map,
+        position: {
+          "lat": 28.559467,
+          "lng": 77.263150
+        },
+        fitbounds: true,
+        icon_url: 'https://apis.mapmyindia.com/map_v3/1.png'
+      });
+      Marker1 = new mappls.Marker({
+        map: map,
+        position: {
+          "lat": 28.539467,
+          "lng": 77.243150
+        },
+        fitbounds: true,
+        icon_url: 'https://apis.mapmyindia.com/map_v3/1.png'
+      });
+    }
+    /*Map Initialization
+    var map,marker;
+    function initMap1() {
+        map = new mappls.Map('map', {
+            center: [28.61, 77.23],
+            zoomControl: true,
+            zoom:8,
+            location: true,
+        });
+        map.on('load', function() {
+            var all_data = [];
+            for (let i = 0; i < 1000; i++) {
+                let lt = randomNumber(26, 29);
+                let ln = randomNumber(76, 79);
+                obj = {
+                    "type": "Feature",
+                    "properties": {
+                        "htmlPopup": "location "+i+"", "icon-size1": 0.55,
+                        "text": i,
+                    },
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [lt, ln]
+                    }
+                }
+                all_data.push(obj);
+            }
+            marker = new mappls.Marker({
+                map: map,
+                position: {
+                    "id": "ravi",
+                    "type": "FeatureCollection",
+                    "features": all_data
+                },
+                fitbounds: true,
+                icon: 'https://apis.mapmyindia.com/map_v3/2.png',
+                offset: [0, -40],
+                draggable: false,
+                clustersOptions: {
+                    background: [
+                        [2, 'green'],
+                        [5, 'red'],
+                        [10, 'yellow'],
+                        [20, 'orange'],
+                        [35, 'blue']
+                    ], // steps in background color (in pixels)
+                    maxZoom: 7, // that zoom for split cluster circle 
+                    radius: [
+                        [2, 15],
+                        [5, 20],
+                        [10, 30],
+                        [20, 40],
+                        [35, 50],
+                    ] // steps in cluster radius (in pixels)
+                }
+                /*Using steps expressions - introduced in background color, and radius - Produces discrete,
+                stepped results by evaluating a piecewise-constant function defined by pairs of input and 
+                output values ("stops"). Stop inputs must be numeric literals in strictly ascending order. 
+            });
+        })
+    }
+    // generate random lat lng    
+    function randomNumber(min, max) {
+        return Math.random() * (max - min) + min
+    }*/
+  </script>
+        </body>
+      </html>
